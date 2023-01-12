@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="./styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="position-absolute top-0 end-0">
+      <!-- Button trigger modal -->
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop"
+      >
+       Dodaj novi film
+      </button>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="staticBackdrop"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-2" id="staticBackdropLabel">
+                Dodaj novi film
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form id="form" onsubmit="handleSubmit()">
+                <div class="mb-3">
+                  <label class="form-label fs-5" for="title-input"
+                    >Naziv</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="title-input"
+                    placeholder="Unesi naziv filma..."
+                    required
+                  />
+                  <div id="sameMovie" class="mt-1 text-danger-emphasis">
+
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label fs-5" for="year-input"
+                    >Godina</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="year-input"
+                    placeholder="Unesi godinu..."
+                    min="1930"
+                    max="2021"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label
+                    class="form-label fs-5"
+                    for="country-input"
+                    >Drzava</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="country-input"
+                    placeholder="Unesi drzavu..."
+                  />
+                </div>
+                <div class="mb-3">
+                  <label
+                    class="form-label fs-5"
+                    for="description-input"
+                    >Napomena</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="description-input"
+                    placeholder="Unesi napomenu..."
+                  />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label fs-5" for="actors-input"
+                    >Glumci</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="actors-input"
+                    placeholder="Unesi glumce..."
+                  ></textarea>
+                  <div id="no-actors" class="mt-1 text-danger-emphasis">
+
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  class="btn btn-primary mt-3 w-100"
+                  id="submit-button"
+                >
+                  Dodaj
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container mt-5">
+      <table class="table table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Odgledan</th>
+            <th scope="col">Naziv</th>
+            <th scope="col">Godina</th>
+            <th scope="col">Drzava</th>
+            <th scope="col">Napomena</th>
+            <th scope="col">Glumci</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
